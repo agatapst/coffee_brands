@@ -1,0 +1,74 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="stylesheets/main.css">
+  <title>Coffee brands</title>
+</head>
+<body class="grey lighten-4">
+ <!-- NAVBAR -->
+    <nav class="z-depth-0 indigo darken-1">
+        <div class="nav-wrapper container">
+            <a href="#" class="brand-logo">coffee brands</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in">
+                    <a href="#" class="white-text modal-trigger" data-target="modal-account">account</a>
+                </li>
+                <li class="logged-in">
+                    <a href="#" class="white-text" id="logout">logout</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="white-text modal-trigger" data-target="modal-login">login</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="white-text modal-trigger" data-target="modal-signup">sign up</a>
+                </li>
+                <li class="logged-in">
+                    <a class="amber btn">Add coffee</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+    </div>
+
+<!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+    </div>
+
+<!-- CREATE COFFEE -->
+    <div id="modal-create" class="modal">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <p>A bunch of text</p>
+        </div>
+    </div>
+
+  <!-- LIST OF COFFEES-->
+    <div class="container">
+        <ul class="collapsible z-depth-0 coffees">
+         
+        </ul>
+    </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="scripts/auth.js"></script>
+  <script src="scripts/index.js"></script>
+</body>
+</html>
