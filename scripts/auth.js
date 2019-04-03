@@ -58,3 +58,15 @@ logout.addEventListener('click', (e) => {
     alert(errorMessage)
   });
 });
+
+// listen to auth status changes
+auth.onAuthStateChanged(user => {
+    if (user) {
+        // get data
+        db.collection('coffees').onSnapshot(snapshot => {
+        showCoffees(snapshot.docs);
+    });
+    } else {
+        showCoffees([]);
+    }
+});
