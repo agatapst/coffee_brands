@@ -66,9 +66,30 @@
         </ul>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-firestore.js"></script>
+
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyDYAIyG21M-zhJoVh66ApkgO_FaEiWGHaE",
+        authDomain: "coffee-brands.firebaseapp.com",
+        databaseURL: "https://coffee-brands.firebaseio.com",
+        projectId: "coffee-brands",
+        storageBucket: "",
+        messagingSenderId: "621260357883"
+    };
+    firebase.initializeApp(config);
+
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    </script>
   <!-- JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="scripts/auth.js"></script>
-  <script src="scripts/index.js"></script>
+  <script src="scripts/script.js"></script>
 </body>
 </html>
