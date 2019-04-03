@@ -10,7 +10,7 @@ signupForm.addEventListener('submit', (e) => {
     const password = signupForm['signup-password'].value
 
     // sign up the user
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here
         var errorMessage = error.message;
         alert(errorMessage)
@@ -24,16 +24,16 @@ signupForm.addEventListener('submit', (e) => {
 
 // login 
 const loginForm = document.querySelector('#login-form');
-signupForm.addEventListener('submit', (e) => {
+loginForm.addEventListener('submit', (e) => {
     // to prevent from page refresh
     e.preventDefault(); 
 
     // get info about the user (from the signup form)
-    const email = signupForm['login-email'].value
-    const password = signupForm['login-password'].value
+    const email = loginForm['login-email'].value
+    const password = loginForm['login-password'].value
 
     // sign up the user
-    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    auth.signInWithEmailAndPassword(email, password).catch(function(error) {
         // Handle Errors here
         var errorMessage = error.message;
         alert(errorMessage)
@@ -43,4 +43,18 @@ signupForm.addEventListener('submit', (e) => {
     const modal = document.querySelector('#modal-login');
     M.Modal.getInstance(modal).close();
     loginForm.reset();
-}); 
+});
+
+// logout 
+const logout = document.querySelector('#logout');
+logout.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    auth.signOut().then(function() {
+    // Sign-out successful.
+    }).catch(function(error) {
+    // An error happened.
+    var errorMessage = error.message;
+    alert(errorMessage)
+  });
+});
