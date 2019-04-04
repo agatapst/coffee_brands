@@ -58,29 +58,11 @@ auth.onAuthStateChanged(user => {
     if (user) {
         // get data
         db.collection('coffees').onSnapshot(snapshot => {
-        showCoffees(snapshot.docs);
-    });
+            showCoffees(snapshot.docs);
+            changeNav(user)
+        });
     } else {
+        changeNav(user)
         showCoffees([]);
     }
-});
-
-// add new coffee
-const addForm = document.querySelector('#add-form');
-addForm.addEventListener('submit', (e) => {
-    // to prevent from page refresh
-    e.preventDefault();
-
-    db.collection('coffees').add({
-        name: addForm['name'].value,
-        roastery: addForm['roastery'].value,
-        opinion: addForm['opinion'].value,
-        rate: addForm['rate'].value
-    }).then(() => {
-        const modal = document.querySelector('#modal-add');
-        M.Modal.getInstance(modal).close();
-        addForm.reset();
-    }).catch(err => {
-        console.log(err.message);
-    });
 });

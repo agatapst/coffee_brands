@@ -1,4 +1,6 @@
 const coffeeList = document.querySelector('.coffees');
+const loggedIn = document.querySelectorAll('.logged-in');
+const loggedOut = document.querySelectorAll('.logged-out');
 
 // show coffees
 const showCoffees = (data) => {
@@ -22,6 +24,38 @@ const showCoffees = (data) => {
     coffeeList.innerHTML = '<h5>login to view coffees</h5>'
   }
 }
+
+// add new coffee
+const addForm = document.querySelector('#add-form');
+addForm.addEventListener('submit', (e) => {
+    // to prevent from page refresh
+    e.preventDefault();
+
+    db.collection('coffees').add({
+        name: addForm['name'].value,
+        roastery: addForm['roastery'].value,
+        opinion: addForm['opinion'].value,
+        rate: addForm['rate'].value
+    }).then(() => {
+        const modal = document.querySelector('#modal-add');
+        M.Modal.getInstance(modal).close();
+        addForm.reset();
+    }).catch(err => {
+        console.log(err.message);
+    });
+});
+
+// change nav if user is logged in/out
+const changeNav = (user) => {
+    if (user) {
+      // user logged in
+      loggedIn.forEach(item => item.classList.remove('hide'));
+      loggedOut.forEach(item => item.classList.add('hide'));
+    } else {
+      loggedOut.forEach(item => item.classList.remove('hide'));
+      loggedIn.forEach(item => item.classList.add('hide'));
+    }
+  }
 
 // Materialize Modal Inititialization
 document.addEventListener('DOMContentLoaded', function() {
