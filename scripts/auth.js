@@ -1,4 +1,3 @@
-
 // sign up
 const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', (e) => {
@@ -10,10 +9,8 @@ signupForm.addEventListener('submit', (e) => {
     const password = signupForm['signup-password'].value
 
     // sign up the user
-    auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here
-        var errorMessage = error.message;
-        alert(errorMessage)
+    auth.createUserWithEmailAndPassword(email, password).catch(err => {
+        alert(err.message)
     });
     
     // let the modal close and reset the form
@@ -33,10 +30,8 @@ loginForm.addEventListener('submit', (e) => {
     const password = loginForm['login-password'].value
 
     // sign up the user
-    auth.signInWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here
-        var errorMessage = error.message;
-        alert(errorMessage)
+    auth.signInWithEmailAndPassword(email, password).catch(err => {
+        alert(err.message)
     });
     
     // let the modal close and reset the form
@@ -52,14 +47,13 @@ logout.addEventListener('click', (e) => {
 
     auth.signOut().then(function() {
     // Sign-out successful.
-    }).catch(function(error) {
+    }).catch(err => {
     // An error happened.
-    var errorMessage = error.message;
-    alert(errorMessage)
+    alert(err.message)
   });
 });
 
-// listen to auth status changes
+// listen to auth status changes -> show data only for logged users
 auth.onAuthStateChanged(user => {
     if (user) {
         // get data
@@ -69,4 +63,24 @@ auth.onAuthStateChanged(user => {
     } else {
         showCoffees([]);
     }
+});
+
+// add new coffee
+const addForm = document.querySelector('#add-form');
+addForm.addEventListener('submit', (e) => {
+    // to prevent from page refresh
+    e.preventDefault();
+
+    db.collection('coffees').add({
+        name: addForm['name'].value,
+        roastery: addForm['roastery'].value,
+        opinion: addForm['opinion'].value,
+        rate: addForm['rate'].value
+    }).then(() => {
+        const modal = document.querySelector('#modal-add');
+        M.Modal.getInstance(modal).close();
+        addForm.reset();
+    }).catch(err => {
+        console.log(err.message);
+    });
 });

@@ -1,16 +1,5 @@
 const coffeeList = document.querySelector('.coffees');
 
-// Materialize Modal Inititialization
-document.addEventListener('DOMContentLoaded', function() {
-
-  var modals = document.querySelectorAll('.modal');
-  M.Modal.init(modals);
-
-  var items = document.querySelectorAll('.collapsible');
-  M.Collapsible.init(items);
-
-});
-
 // show coffees
 const showCoffees = (data) => {
 
@@ -33,3 +22,14 @@ const showCoffees = (data) => {
     coffeeList.innerHTML = '<h5>login to view coffees</h5>'
   }
 }
+
+// Materialize Modal Inititialization
+document.addEventListener('DOMContentLoaded', function() {
+
+  var modals = document.querySelectorAll('.modal');
+  M.Modal.init(modals);
+
+  var items = document.querySelectorAll('.collapsible');
+  M.Collapsible.init(items);
+
+});

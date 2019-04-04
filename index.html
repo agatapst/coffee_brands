@@ -29,7 +29,7 @@
                     <a href="#" class="white-text modal-trigger" data-target="modal-signup">sign up</a>
                 </li>
                 <li class="logged-in">
-                    <a class="amber btn">Add coffee</a>
+                    <a class="amber btn modal-trigger" id="add-button" data-target="modal-add">Add coffee</a>
                 </li>
             </ul>
         </div>
@@ -71,13 +71,31 @@
         </div>
     </div>
 
-<!-- CREATE COFFEE -->
-    <div id="modal-create" class="modal">
-        <div class="modal-content">
-          <h4>Modal Header</h4>
-          <p>A bunch of text</p>
+<!-- ADD NEW COFFEE -->
+<div id="modal-add" class="modal">
+    <div class="modal-content">
+        <h4>add new coffee</h4><br />
+        <form id="add-form">
+        <div class="input-field">
+            <input type="text" id="name" required>
+            <label for="name">coffee name</label>
         </div>
+        <div class="input-field">
+            <input type="text" id="roastery" required>
+            <label for="roastery">roastery</label>
+        </div>
+        <div class="input-field">
+            <textarea id="opinion" class="materialize-textarea" required></textarea>
+            <label for="opinion">your opinion</label>
+        </div>
+        <div class="input-field">
+            <input type="number" id="rate" required>
+            <label for="rate">your rate</label>
+        </div>
+        <button class="btn amber z-depth-0">add</button>
+        </form>
     </div>
+</div>
 
   <!-- LIST OF COFFEES-->
     <div class="container">
