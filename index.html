@@ -12,28 +12,30 @@
 </head>
 <body>
  <!-- NAVBAR -->
-    <nav class="z-depth-0  main-nav">
-        <div class="nav-wrapper container">
-            <a href="#" class="brand-logo">coffee brands</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li class="logged-in hide">
-                    <a href="#" class="white-text modal-trigger" data-target="modal-account">account</a>
-                </li>
-                <li class="logged-in hide">
-                    <a href="#" class="white-text" id="logout">logout</a>
-                </li>
-                <li class="logged-out">
-                    <a href="#" class="white-text modal-trigger" data-target="modal-login">login</a>
-                </li>
-                <li class="logged-out">
-                    <a href="#" class="white-text modal-trigger" data-target="modal-signup">sign up</a>
-                </li>
-                <li class="logged-in hide">
-                    <a class="amber btn modal-trigger" id="add-button" data-target="modal-add">Add coffee</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav class="z-depth-0 main-nav">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo"></a>
+                <ul id="nav-mobile" class="right">
+                    <li class="logged-in hide">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-account">account</a>
+                    </li>
+                    <li class="logged-in hide">
+                        <a href="#" class="white-text" id="logout">logout</a>
+                    </li>
+                    <li class="logged-out">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-login">login</a>
+                    </li>
+                    <li class="logged-out">
+                        <a href="#" class="white-text modal-trigger" data-target="modal-signup">sign up</a>
+                    </li>
+                    <li class="logged-in hide">
+                        <a class="amber btn modal-trigger" id="add-button" data-target="modal-add">Add coffee</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 
 <!-- SIGN UP MODAL -->
     <div id="modal-signup" class="modal">
@@ -101,13 +103,13 @@
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <h4 class="coffees-header typewriter">let's talk about coffee</h4>
+                <h4 class="typewriter">let's talk about coffee</h4>
             </div>
-            <div class="col s6">
-                <img src="images/abstract-coffee-break.png" alt="coffe" class="main-img">
-            </div>
-            <div class="col s6">
+            <div class="col s12 push-m6 m6">
                 <ul class="collapsible z-depth-0 coffees"></ul>
+            </div>
+            <div class="col s12 pull-m6 m6">
+                <img src="images/main-banner.png" alt="coffee" class="main-img">
             </div>
         </div>
         
