@@ -4,15 +4,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- CSS -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:300,400" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="stylesheets/normalize.css">
   <link rel="stylesheet" href="stylesheets/main.css">
   <title>Coffee brands</title>
 </head>
-<body class="amber lighten-5">
+<body>
  <!-- NAVBAR -->
-    <nav class="z-depth-0 indigo darken-1">
+    <nav class="z-depth-0  main-nav">
         <div class="nav-wrapper container">
             <a href="#" class="brand-logo">coffee brands</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -74,7 +74,7 @@
 <!-- ADD NEW COFFEE -->
 <div id="modal-add" class="modal">
     <div class="modal-content">
-        <h4>add new coffee</h4><br />
+        <h4>what coffee have you recently had?</h4><br />
         <form id="add-form">
         <div class="input-field">
             <input type="text" id="name" required>
@@ -99,9 +99,18 @@
 
   <!-- LIST OF COFFEES-->
     <div class="container">
-        <ul class="collapsible z-depth-0 coffees">
-         
-        </ul>
+        <div class="row">
+            <div class="col s12">
+                <h4 class="coffees-header typewriter">let's talk about coffee</h4>
+            </div>
+            <div class="col s6">
+                <img src="images/abstract-coffee-break.png" alt="coffe" class="main-img">
+            </div>
+            <div class="col s6">
+                <ul class="collapsible z-depth-0 coffees"></ul>
+            </div>
+        </div>
+        
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-app.js"></script>

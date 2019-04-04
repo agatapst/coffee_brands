@@ -10,18 +10,25 @@ const showCoffees = (data) => {
     data.forEach(doc => {
       const coffee = doc.data();
       const li = `
-        <li>
+        <li class="active">
           <div class='collapsible-header grey lighten-4'>${coffee.name}</div>
-          <div class='collapsible-body white'><h5>roastery: </h5>${coffee.roastery}</div>
-          <div class='collapsible-body white'><h5>opinion: </h5>${coffee.opinion}</div>
-          <div class='collapsible-body white'><h5>rate: </h5>${coffee.rate}</div>
+          <div class='collapsible-body white'>
+          <h5>roastery: </h5>${coffee.roastery}
+          <h5>opinion: </h5>${coffee.opinion}
+          <h5>rate: </h5>${coffee.rate}
+          </div>
         </li>
         `;
         html += li
     });
     coffeeList.innerHTML = html;
   } else {
-    coffeeList.innerHTML = '<h5>login to view coffees</h5>'
+    coffeeList.innerHTML = `
+      <div class="sign-up">
+       <h4>sign up to join<br> our coffee community</h4>
+       <button class="amber btn white-text modal-trigger" data-target="modal-signup">sign up</button>
+      </div>
+    `
   }
 }
 
