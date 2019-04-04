@@ -60,6 +60,8 @@ auth.onAuthStateChanged(user => {
         db.collection('coffees').onSnapshot(snapshot => {
             showCoffees(snapshot.docs);
             changeNav(user)
+        }).catch(err => {
+            console.log(err.message);
         });
     } else {
         changeNav(user)

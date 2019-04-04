@@ -1,6 +1,7 @@
 const coffeeList = document.querySelector('.coffees');
 const loggedIn = document.querySelectorAll('.logged-in');
 const loggedOut = document.querySelectorAll('.logged-out');
+const accountDetails = document.querySelector('.account-details');
 
 // show coffees
 const showCoffees = (data) => {
@@ -10,7 +11,7 @@ const showCoffees = (data) => {
     data.forEach(doc => {
       const coffee = doc.data();
       const li = `
-        <li class="active">
+        <li>
           <div class='collapsible-header grey lighten-4'>${coffee.name}</div>
           <div class='collapsible-body white'>
           <h5>roastery: </h5>${coffee.roastery}
@@ -24,9 +25,9 @@ const showCoffees = (data) => {
     coffeeList.innerHTML = html;
   } else {
     coffeeList.innerHTML = `
-      <div class="sign-up">
+      <div class='sign-up'>
        <h4>sign up to join<br> our coffee community</h4>
-       <button class="amber btn white-text modal-trigger" data-target="modal-signup">sign up</button>
+       <button class='amber btn white-text modal-trigger' data-target='modal-signup'>sign up</button>
       </div>
     `
   }
@@ -55,6 +56,11 @@ addForm.addEventListener('submit', (e) => {
 // change nav if user is logged in/out
 const changeNav = (user) => {
     if (user) {
+      // account details
+      const html = `
+      <div>logged in as ${user.email}</div>
+      `
+      accountDetails.innerHTML = html;
       // user logged in
       loggedIn.forEach(item => item.classList.remove('hide'));
       loggedOut.forEach(item => item.classList.add('hide'));
