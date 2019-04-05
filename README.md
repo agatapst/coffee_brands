@@ -1,6 +1,8 @@
 # coffee brands ☕
 An app which helps you to find out, which coffee is worth having.
 
+[Website demo](https://agatapst.github.io/coffee_brands/)
+
 ![Website screenshot](./images/screenshot.png)
 
 ## Table of Contents
