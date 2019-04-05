@@ -48,23 +48,30 @@ logout.addEventListener('click', (e) => {
     auth.signOut().then(function() {
     // Sign-out successful.
     }).catch(err => {
-    // An error happened.
-    alert(err.message)
-  });
+        // An error happened.
+        alert(err.message);
+    });
 });
 
 // listen to auth status changes -> show data only for logged users
+let coffeesListener;
 auth.onAuthStateChanged(user => {
     if (user) {
+        changeNav(user);
         // get data
-        db.collection('coffees').onSnapshot(snapshot => {
+        coffeesListener = db.collection('coffees').onSnapshot(snapshot => {
             showCoffees(snapshot.docs);
-            changeNav(user)
-        }).catch(err => {
-            console.log(err.message);
+        }, error => { 
+            console.log("Error: " + error.message) 
         });
     } else {
-        changeNav(user)
+
+        if(coffeesListener) {
+            // unsubscribe from coffee collection -> if user is logged in for the first time,
+            // it is not taken into consideration
+            coffeesListener();
+        }
+        changeNav(user);
         showCoffees([]);
     }
 });
