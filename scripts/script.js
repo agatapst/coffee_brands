@@ -2,6 +2,7 @@ const coffeeList = document.querySelector('.coffees');
 const loggedIn = document.querySelectorAll('.logged-in');
 const loggedOut = document.querySelectorAll('.logged-out');
 const accountDetails = document.querySelector('.account-details');
+const addForm = document.querySelector('#add-form');
 
 // show coffees
 const showCoffees = (data) => {
@@ -11,7 +12,6 @@ const showCoffees = (data) => {
     data = data.sort((doc1, doc2) => {
       let coffee1 = doc1.data().name.trim().toLowerCase(); 
       let coffee2 = doc2.data().name.trim().toLowerCase(); 
-      console.log(coffee1.name + " <> " + coffee2.name);
       if(coffee1 < coffee2) { return -1; }
       if(coffee1 > coffee2) { return 1; }
       return 0;
@@ -35,15 +35,14 @@ const showCoffees = (data) => {
   } else {
     coffeeList.innerHTML = `
     <div class='sign-up'>
-    <h4>sign up to join<br> our coffee community</h4>
-    <button class='amber btn white-text modal-trigger' data-target='modal-signup'>sign up</button>
+      <h4>sign up to join<br> our coffee community</h4>
+      <button class='amber btn white-text modal-trigger' data-target='modal-signup'>sign up</button>
     </div>
     `
   }
 }
 
 // add new coffee
-const addForm = document.querySelector('#add-form');
 addForm.addEventListener('submit', (e) => {
   // to prevent from page refresh
   e.preventDefault();
